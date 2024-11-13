@@ -7,6 +7,7 @@ import com.downloader.OnPauseListener;
 import com.downloader.OnProgressListener;
 import com.downloader.OnStartOrResumeListener;
 import com.downloader.Priority;
+import com.downloader.Progress;
 import com.downloader.Response;
 import com.downloader.Status;
 import com.downloader.core.Core;
@@ -181,6 +182,10 @@ public class DownloadRequest {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Progress getProgress() {
+        return new Progress(downloadedBytes, totalBytes);
     }
 
     public OnProgressListener getOnProgressListener() {

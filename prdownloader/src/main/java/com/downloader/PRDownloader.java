@@ -111,6 +111,16 @@ public class PRDownloader {
     }
 
     /**
+     * Method to get the progress of the request with the given downloadId
+     *
+     * @param downloadId The downloadId with which request progress is to be checked
+     * @return the progress
+     */
+    public static Progress getProgress(int downloadId) {
+        return DownloadRequestQueue.getInstance().getProgress(downloadId);
+    }
+
+    /**
      * Method to clean up temporary resumed files which is older than the given day
      *
      * @param days the days

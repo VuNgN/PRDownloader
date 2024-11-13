@@ -1,5 +1,6 @@
 package com.downloader.internal;
 
+import com.downloader.Progress;
 import com.downloader.Status;
 import com.downloader.core.Core;
 import com.downloader.request.DownloadRequest;
@@ -100,6 +101,14 @@ public class DownloadRequestQueue {
             return request.getStatus();
         }
         return Status.UNKNOWN;
+    }
+
+    public Progress getProgress(int downloadId) {
+        DownloadRequest request = currentRequestMap.get(downloadId);
+        if (request != null) {
+            return request.getProgress();
+        }
+        return null;
     }
 
     public void addRequest(DownloadRequest request) {
